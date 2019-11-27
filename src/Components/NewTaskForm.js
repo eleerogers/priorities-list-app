@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import uuid from 'uuid/v4';
 
 function NewTaskForm(props){
   const [task, setTask] = useState('');
@@ -6,7 +7,7 @@ function NewTaskForm(props){
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.addTask({task, level});
+    props.addTask({task, level, id: uuid()});
     setTask('');
     setLevel(0)
   }

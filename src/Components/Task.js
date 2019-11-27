@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Task(props) {
-  const {task, level} = props;
+  const {task, level, removeTask, id} = props;
   const levels = ['Low', 'Medium', 'High']
 
   return (
@@ -9,7 +9,7 @@ function Task(props) {
       <li>
         <div>{task}</div>
         <div>{levels[level]}</div>
-        <button>X</button>
+        <button onClick={() => removeTask(id)}>X</button>
         <button>Edit</button>
       </li>
     </div>
