@@ -1,11 +1,18 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Task from './Task';
 import TaskForm from './TaskForm'
 
 function PriorityList() {
-  const [tasks, setTasks] = useState([]);
+  const tasksData = sessionStorage.getItem('tasks')
+
+  const [tasks, setTasks] = useState(tasksData ? JSON.parse(tasksData) : []);
   const [showNewTaskModal, setShowNewTaskModal] = useState(false);
   const [taskToEdit, setTaskToEdit] = useState(null);
+
+  useEffect(() => {
+    const tasksStr = JSON.stringify(tasks);
+    sessionStorage.setItem('tasks', tasksStr);
+  }, [tasks])
 
   const addTask = (newTask) => {
     setTasks(prevTasks => [...prevTasks, newTask]);
@@ -62,7 +69,7 @@ function PriorityList() {
       <ul>
         {taskList}
       </ul>
-      <button onClick={showModal}>Add Task</button>
+      <button className="bottomBtns" onClick={showModal}>Add Task</button>
       <TaskForm
         addTask={addTask}
         show={showNewTaskModal}
@@ -70,7 +77,7 @@ function PriorityList() {
         taskObj={taskToEdit}
         finishUpdate={finishUpdate}
       />
-      <button onClick={sortTasks}>Sort by Priority</button>
+      <button className="bottomBtns" onClick={sortTasks}>Sort by Priority</button>
     </div>
   )
 }

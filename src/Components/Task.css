@@ -1,0 +1,11 @@
+.task {
+  margin: 2em auto;
+  padding: 1em 0;
+  background-color: cadetblue;
+  width: 50%;
+
+}
+
+.task-text {
+  font-size: 20px
+}

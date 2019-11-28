@@ -4,10 +4,14 @@ form {
   align-items: center;
 }
 
-/* input, select, button {
-  display: flex;
+input {
+  font-size: 18px;
+  margin: 2em 0;
+}
+select {
+  font-size: 16px;
   width: 25%;
-} */
+}
 
 .modal {
   position: fixed;
@@ -21,12 +25,13 @@ form {
 .modal-main {
   padding: 2em;
   position:fixed;
-  background: white;
+  background: rgb(203, 204, 224);
   width: 80%;
   height: auto;
   top:50%;
   left:50%;
   transform: translate(-50%,-50%);
+  font-size: 18px;
 }
 
 .display-block {
@@ -35,4 +40,9 @@ form {
 
 .display-none {
   display: none;
+}
+
+.addOrEditBtn {
+  padding: 1em 2em;
+  border-radius: 5px;
 }

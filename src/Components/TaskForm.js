@@ -56,7 +56,7 @@ function TaskForm({addTask, show, handleClose, taskObj, finishUpdate}){
             <option value={1}>Medium</option>
             <option value={2}>High</option>
           </select>
-          <button>{addOrEdit}</button>
+          <button className="addOrEditBtn">{addOrEdit}</button>
         </form>
         <button onClick={handleCancel}>Cancel</button>
       </div>
